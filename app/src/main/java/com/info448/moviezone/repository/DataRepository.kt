@@ -37,6 +37,6 @@ interface MovieZoneService {
         "x-rapidapi-key: 9dc0637ae4msh00919079d6e5317p1b66e0jsn6551d5d0f4e1",
         "x-rapidapi-host: movies-tvshows-data-imdb.p.rapidapi.com"
     )
-    @GET("type=get-movie-details&tt0245429&imdb=tt0245429")
+    @GET("type=get-movies-images-by-imdb&imdb=tt1375666")
     suspend fun getMovieImage(): MovieImage
 }
