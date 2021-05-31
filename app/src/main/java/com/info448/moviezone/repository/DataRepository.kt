@@ -18,23 +18,24 @@ import retrofit2.http.Url
 class DataRepository {
 
     private val movieService = Retrofit.Builder()
-        .baseUrl("https://raw.githubusercontent.com/")
+        .baseUrl("https://raw.githubusercontent.com/?")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(MovieZoneService::class.java)
 
-    suspend fun getMovieDetail(imdbNum: String): MovieDetail = movieService.getMovieDetail(imdbNum)
+    suspend fun getMovieDetail(): MovieDetail = movieService.getMovieDetail()
 
 }
 
 interface MovieZoneService {
 
-    @GET("?type=get-movie-details&")
+    @GET("type=get-movie-details&tt0245429&imdb=tt0245429")
     @Headers(
         "x-rapidapi-key: 9dc0637ae4msh00919079d6e5317p1b66e0jsn6551d5d0f4e1",
         "x-rapidapi-host: movies-tvshows-data-imdb.p.rapidapi.com"
     )
     suspend fun getMovieDetail(
-        @Query("imdb") imdbNum: String,
+
+        //@Query("imdb") imdb_ID: String
     ): MovieDetail
 }

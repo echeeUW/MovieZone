@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
         lateinit var sampleMovie: MovieDetail
         lifecycleScope.launch{
             kotlin.runCatching {
-                sampleMovie = MovieZoneApp.dataRepository.getMovieDetail("tt0245429")
+                sampleMovie = MovieZoneApp.dataRepository.getMovieDetail()
+                Toast.makeText(this@MainActivity, sampleMovie.toString(), Toast.LENGTH_SHORT).show()
             }.onSuccess {
                 Log.i("MovieZone App", sampleMovie.toString())
                 Toast.makeText(this@MainActivity, sampleMovie.toString(), Toast.LENGTH_SHORT).show()
